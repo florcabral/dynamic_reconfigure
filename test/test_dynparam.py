@@ -17,7 +17,7 @@ class TestDynparam(unittest.TestCase):
             # run dynparam load with insecure yaml
             output = subprocess.check_output(['rosrun dynamic_reconfigure dynparam load ref_server ' + unsafe_yaml_file], stderr=subprocess.STDOUT, shell=True, executable="/bin/bash")
         except subprocess.CalledProcessError as e:
-            self.assertIn('could not determine a constructor for the tag', e.output) # check the right error is being thrown
+            self.assertIn('could not determine a constructor for the tag'.encode(), e.output) # check the right error is being thrown
             retcode_unsafe_yaml = e.returncode
 
         # check the test failed
